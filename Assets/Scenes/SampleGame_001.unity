@@ -1065,6 +1065,73 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2029642329
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2071331960}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 5172588cdceeaad4b9a1402190add9e6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5172588cdceeaad4b9a1402190add9e6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.68799996
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5172588cdceeaad4b9a1402190add9e6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5172588cdceeaad4b9a1402190add9e6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5172588cdceeaad4b9a1402190add9e6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5172588cdceeaad4b9a1402190add9e6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5172588cdceeaad4b9a1402190add9e6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5172588cdceeaad4b9a1402190add9e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5172588cdceeaad4b9a1402190add9e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5172588cdceeaad4b9a1402190add9e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5172588cdceeaad4b9a1402190add9e6, type: 3}
+      propertyPath: m_Name
+      value: glider
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5172588cdceeaad4b9a1402190add9e6, type: 3}
+--- !u!1 &2029642330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5172588cdceeaad4b9a1402190add9e6, type: 3}
+  m_PrefabInstance: {fileID: 2029642329}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2029642331 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5172588cdceeaad4b9a1402190add9e6, type: 3}
+  m_PrefabInstance: {fileID: 2029642329}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2071331954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,7 +1167,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
-  jumpForce: 5
+  jumpForce: 7
+  turnSpeed: 10
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
+  coyoteTime: 0.15
+  coyoteTimeCounter: 0
+  realGrounded: 1
+  gliderObject: {fileID: 2029642330}
+  gliderFallSpeed: 1
+  gliderFMoveSpeed: 7
+  gliderMaxTime: 5
+  gliderTimerLeft: 0
+  isGliding: 0
   rb: {fileID: 2071331956}
   isGrounded: 1
   coinCount: 3
@@ -1138,7 +1217,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071331954}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 415f799dfb1deb3439cf42ed1a58b73f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1225,6 +1304,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1363309155}
+  - {fileID: 2029642331}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2071331961
